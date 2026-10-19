@@ -1,0 +1,24 @@
+[build]
+  # Directory where your built or raw frontend files (HTML, CSS, JS) are located
+  publish = "."
+  
+  # Command executed during build (e.g., compiling assets or frontend frameworks if applicable)
+  command = "echo 'Building project for Netlify...'"
+
+[build.environment]
+  # Node version context if running build scripts or AI Studio Node packages
+  NODE_VERSION = "18"
+
+# Handle routing for Single Page Applications or custom asset paths
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security and CORS headers to allow seamless API and AI Studio queries
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
